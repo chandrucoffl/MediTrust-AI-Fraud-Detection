@@ -906,7 +906,8 @@ def verify():
     return render_template('web/verify.html',msg=msg,data=data,pid=pid,st=st,f_arr=f_arr,f_arr2=f_arr2,f_type=f_type)
 
 def extract_text(file1):
-    pytesseract.pytesseract.tesseract_cmd = 'C:\\Program Files\\Tesseract-OCR\\tesseract.exe'
+    if os.path.exists('C:\\Program Files\\Tesseract-OCR\\tesseract.exe'): pytesseract.pytesseract.tesseract_cmd = 'C:\\Program Files\\Tesseract-OCR\\tesseract.exe'
+    else: pytesseract.pytesseract.tesseract_cmd = 'tesseract'
     Actual_image = cv2.imread(file1)
     #Sample_img = cv2.resize(Actual_image,(400,350))
     Image_ht,Image_wd,Image_thickness = Actual_image.shape
@@ -1136,7 +1137,8 @@ def verify_file():
                 ###################
                 mytext1=[]
                 mytext2=[]
-                pytesseract.pytesseract.tesseract_cmd = 'C:\\Program Files\\Tesseract-OCR\\tesseract.exe'
+                if os.path.exists('C:\\Program Files\\Tesseract-OCR\\tesseract.exe'): pytesseract.pytesseract.tesseract_cmd = 'C:\\Program Files\\Tesseract-OCR\\tesseract.exe'
+    else: pytesseract.pytesseract.tesseract_cmd = 'tesseract'
                 Actual_image = cv2.imread("static/data/"+file2)
                 #Sample_img = cv2.resize(Actual_image,(400,350))
                 Image_ht,Image_wd,Image_thickness = Actual_image.shape
@@ -1166,7 +1168,8 @@ def verify_file():
                 mytext1=mytext.split("|")
                 dar.append(mytext1)
                 ################
-                pytesseract.pytesseract.tesseract_cmd = 'C:\\Program Files\\Tesseract-OCR\\tesseract.exe'
+                if os.path.exists('C:\\Program Files\\Tesseract-OCR\\tesseract.exe'): pytesseract.pytesseract.tesseract_cmd = 'C:\\Program Files\\Tesseract-OCR\\tesseract.exe'
+    else: pytesseract.pytesseract.tesseract_cmd = 'tesseract'
                 Actual_image = cv2.imread("static/upload/"+file1)
                 #Sample_img = cv2.resize(Actual_image,(400,350))
                 Image_ht,Image_wd,Image_thickness = Actual_image.shape
