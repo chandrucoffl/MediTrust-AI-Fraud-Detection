@@ -38,11 +38,11 @@ import mysql.connector
 #from pdf2image import convert_from_path
 
 mydb = mysql.connector.connect(
-  host="localhost",
-  user="root",
-  passwd="",
-  charset="utf8",
-  database="medical_fundraising"
+    host="mysql-18a0885d-chandrucoffl-17df.k.aivencloud.com",
+    port=15330,
+    user="avnadmin",
+    password="AVNS_I5XxWsxtyxDS9q3-eHs",
+    database="defaultdb"
 )
 app = Flask(__name__)
 ##session key
@@ -1660,6 +1660,7 @@ def logout():
     #session.pop('username', None)
     return redirect(url_for('index'))
 
-if __name__ == "__main__":
-    app.secret_key = os.urandom(12)
-    app.run(debug=True,host='0.0.0.0', port=5000)
+import os
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=False)
