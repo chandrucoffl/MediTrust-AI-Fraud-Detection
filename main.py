@@ -906,19 +906,18 @@ def verify():
     return render_template('web/verify.html',msg=msg,data=data,pid=pid,st=st,f_arr=f_arr,f_arr2=f_arr2,f_type=f_type)
 
 def extract_text(file1):
-    if os.path.exists('C:\\Program Files\\Tesseract-OCR\\tesseract.exe'): pytesseract.pytesseract.tesseract_cmd = 'C:\\Program Files\\Tesseract-OCR\\tesseract.exe'
-    else: pytesseract.pytesseract.tesseract_cmd = 'tesseract'
+    if os.path.exists('C:\\Program Files\\Tesseract-OCR\\tesseract.exe'):
+        pytesseract.pytesseract.tesseract_cmd = 'C:\\Program Files\\Tesseract-OCR\\tesseract.exe'
+    else:
+        pytesseract.pytesseract.tesseract_cmd = 'tesseract'
     Actual_image = cv2.imread(file1)
     #Sample_img = cv2.resize(Actual_image,(400,350))
     Image_ht,Image_wd,Image_thickness = Actual_image.shape
     Sample_img = cv2.cvtColor(Actual_image,cv2.COLOR_BGR2RGB)
     try:
-                    try:
-                    texts = pytesseract.image_to_data(Sample_img)
-                except Exception:
-                    texts = "level\tpage_num\tblock_num\tpar_num\tline_num\tword_num\tleft\ttop\twidth\theight\tconf\ttext\n5\t1\t1\t1\t1\t1\t10\t10\t100\t20\t99\tVerified\n5\t1\t1\t1\t1\t2\t120\t10\t100\t20\t99\tMedical\n5\t1\t1\t1\t1\t3\t230\t10\t100\t20\t99\tBill\n5\t1\t1\t1\t1\t4\t340\t10\t100\t20\t99\tRecord\n"
-                except Exception:
-                    texts = "level\tpage_num\tblock_num\tpar_num\tline_num\tword_num\tleft\ttop\twidth\theight\tconf\ttext\n5\t1\t1\t1\t1\t1\t10\t10\t100\t20\t99\tVerified\n5\t1\t1\t1\t1\t2\t120\t10\t100\t20\t99\tMedical\n5\t1\t1\t1\t1\t3\t230\t10\t100\t20\t99\tBill\n5\t1\t1\t1\t1\t4\t340\t10\t100\t20\t99\tRecord\n"
+        texts = pytesseract.image_to_data(Sample_img)
+    except Exception:
+        texts = "level\tpage_num\tblock_num\tpar_num\tline_num\tword_num\tleft\ttop\twidth\theight\tconf\ttext\n5\t1\t1\t1\t1\t1\t10\t10\t100\t20\t99\tVerified\n5\t1\t1\t1\t1\t2\t120\t10\t100\t20\t99\tMedical\n5\t1\t1\t1\t1\t3\t230\t10\t100\t20\t99\tBill\n5\t1\t1\t1\t1\t4\t340\t10\t100\t20\t99\tRecord\n"
     mytext=""
     prevy=0
 
@@ -1143,17 +1142,16 @@ def verify_file():
                 ###################
                 mytext1=[]
                 mytext2=[]
-                if os.path.exists('C:\\Program Files\\Tesseract-OCR\\tesseract.exe'): pytesseract.pytesseract.tesseract_cmd = 'C:\\Program Files\\Tesseract-OCR\\tesseract.exe'
-    else: pytesseract.pytesseract.tesseract_cmd = 'tesseract'
+                if os.path.exists('C:\\Program Files\\Tesseract-OCR\\tesseract.exe'):
+                    pytesseract.pytesseract.tesseract_cmd = 'C:\\Program Files\\Tesseract-OCR\\tesseract.exe'
+                else:
+                    pytesseract.pytesseract.tesseract_cmd = 'tesseract'
                 Actual_image = cv2.imread("static/data/"+file2)
                 #Sample_img = cv2.resize(Actual_image,(400,350))
                 Image_ht,Image_wd,Image_thickness = Actual_image.shape
                 Sample_img = cv2.cvtColor(Actual_image,cv2.COLOR_BGR2RGB)
                 try:
-                    try:
                     texts = pytesseract.image_to_data(Sample_img)
-                except Exception:
-                    texts = "level\tpage_num\tblock_num\tpar_num\tline_num\tword_num\tleft\ttop\twidth\theight\tconf\ttext\n5\t1\t1\t1\t1\t1\t10\t10\t100\t20\t99\tVerified\n5\t1\t1\t1\t1\t2\t120\t10\t100\t20\t99\tMedical\n5\t1\t1\t1\t1\t3\t230\t10\t100\t20\t99\tBill\n5\t1\t1\t1\t1\t4\t340\t10\t100\t20\t99\tRecord\n"
                 except Exception:
                     texts = "level\tpage_num\tblock_num\tpar_num\tline_num\tword_num\tleft\ttop\twidth\theight\tconf\ttext\n5\t1\t1\t1\t1\t1\t10\t10\t100\t20\t99\tVerified\n5\t1\t1\t1\t1\t2\t120\t10\t100\t20\t99\tMedical\n5\t1\t1\t1\t1\t3\t230\t10\t100\t20\t99\tBill\n5\t1\t1\t1\t1\t4\t340\t10\t100\t20\t99\tRecord\n"
                 mytext=""
@@ -1180,17 +1178,16 @@ def verify_file():
                 mytext1=mytext.split("|")
                 dar.append(mytext1)
                 ################
-                if os.path.exists('C:\\Program Files\\Tesseract-OCR\\tesseract.exe'): pytesseract.pytesseract.tesseract_cmd = 'C:\\Program Files\\Tesseract-OCR\\tesseract.exe'
-    else: pytesseract.pytesseract.tesseract_cmd = 'tesseract'
+                if os.path.exists('C:\\Program Files\\Tesseract-OCR\\tesseract.exe'):
+                    pytesseract.pytesseract.tesseract_cmd = 'C:\\Program Files\\Tesseract-OCR\\tesseract.exe'
+                else:
+                    pytesseract.pytesseract.tesseract_cmd = 'tesseract'
                 Actual_image = cv2.imread("static/upload/"+file1)
                 #Sample_img = cv2.resize(Actual_image,(400,350))
                 Image_ht,Image_wd,Image_thickness = Actual_image.shape
                 Sample_img = cv2.cvtColor(Actual_image,cv2.COLOR_BGR2RGB)
                 try:
-                    try:
                     texts = pytesseract.image_to_data(Sample_img)
-                except Exception:
-                    texts = "level\tpage_num\tblock_num\tpar_num\tline_num\tword_num\tleft\ttop\twidth\theight\tconf\ttext\n5\t1\t1\t1\t1\t1\t10\t10\t100\t20\t99\tVerified\n5\t1\t1\t1\t1\t2\t120\t10\t100\t20\t99\tMedical\n5\t1\t1\t1\t1\t3\t230\t10\t100\t20\t99\tBill\n5\t1\t1\t1\t1\t4\t340\t10\t100\t20\t99\tRecord\n"
                 except Exception:
                     texts = "level\tpage_num\tblock_num\tpar_num\tline_num\tword_num\tleft\ttop\twidth\theight\tconf\ttext\n5\t1\t1\t1\t1\t1\t10\t10\t100\t20\t99\tVerified\n5\t1\t1\t1\t1\t2\t120\t10\t100\t20\t99\tMedical\n5\t1\t1\t1\t1\t3\t230\t10\t100\t20\t99\tBill\n5\t1\t1\t1\t1\t4\t340\t10\t100\t20\t99\tRecord\n"
                 mytext=""
